@@ -43,10 +43,12 @@ Vue.component('app-footer', {
 Vue.component('news-list', {
     template: `<div class="news">
                     <h2>News</h2>
-                    <div v-for="article in articles" class="news__item">
-                        <img v-bind:src="article.urlToImage"/>
-                        <label>{{article.title}}</label>
-                        <p>{{article.description}}</p>
+                    <div class="grid-container">
+                        <div v-for="article in articles" class="news__item grip-item">
+                            <h5>{{article.title}}</h5>
+                            <img class="news-img" v-bind:src="article.urlToImage"/>
+                            <p>{{article.description}}</p>
+                        </div>
                     </div>
                 </div>
                 `,
