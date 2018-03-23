@@ -40,6 +40,28 @@ Vue.component('app-footer', {
 })
 
 
+Vue.component('news-list', {
+    template: `<div class="news">
+                    <h2>News</h2>
+                    <ul class="news__list">
+                        <li class="news__item">News item 1</li>
+                        <li class="news__item">News item 2</li>
+                        <li class="news__item">News item 3</li>
+                    </ul>
+                </div>
+                `,
+    created: function(){
+        let api_key = '';
+        fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${api_key}`)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+        });
+    }
+})
+
 let app = new Vue({
     el: '#app',
     data: {
